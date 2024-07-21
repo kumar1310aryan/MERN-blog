@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react'
 
-const Home = () => {
+const About = () => {
   return (
     <div className="mb-20">
       <h1 className="sm:text-4xl text-2xl font-bold my-6 text-gray-900">
-        Habibi, welcome to My Blogs
+        About 
       </h1>
       <p className="mx-auto leading-relax text-base mb-4">
         We highly recommend using Vite, Parcel, Next.js, or Remix instead of
@@ -39,7 +39,7 @@ const Home = () => {
         already set up.
       </p>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default About
