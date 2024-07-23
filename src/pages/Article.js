@@ -2,13 +2,16 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import articleContent from "./article-content";
 
+//pages
+import NotFound from "./NotFound";
+
 //components
 import Articles from "../components/Articles";
 
 const Article = () => {
   const { name } = useParams();
   const article = articleContent.find((article) => article.name === name);
-  if (!article) return <h1>Article does not exist.</h1>;
+  if (!article) return <NotFound />;
   const otherArticles = articleContent.filter(
     (article) => article.name !== name
   );
