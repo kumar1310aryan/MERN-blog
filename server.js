@@ -2,6 +2,18 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 8000;
 
+const articlesInfo = {
+  "learn-react": {
+    comments: [],
+  },
+  "learn-node": {
+    comments: [],
+  },
+  "my-thoughts-on-learning-react": {
+    comments: [],
+  },
+};
+
 //initialize middleware
 //we use to have to install body parser but now it is a buildt in middleware
 //function of express. It parses incoming JSON payload
@@ -9,10 +21,11 @@ app.use(express.json({ extended: false }));
 
 app.get("/", (req, res) => res.send("hello world"));
 
-app.post("/", (req, res) =>
-  res.send(`habibi...tm kaisi hoti ${req.body.name}`)
-);
-
-app.get("/hello/:name", (req, res) => res.send(`Hello ${req.params.name}`));
+app.post("/api/articles/:name/add-comments", (req, res) => {
+  const { username, text } = req.body;
+  const articleName = req.params.name;
+  articlesInfo[articleName].comments.push({ username, text });
+  res.status(200).send(articlesInfo[articleName]);
+});
 
 app.listen(PORT, () => console.log(`Server started at port ${PORT}`));
