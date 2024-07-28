@@ -3,6 +3,8 @@ const app = express();
 const { MongoClient } = require("mongodb");
 const PORT = process.env.PORT || 8000;
 
+fetch('')
+
 //initialize middleware
 //we use to have to install body parser but now it is a buildt in middleware
 //function of express. It parses incoming JSON payload
